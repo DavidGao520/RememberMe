@@ -1,0 +1,19 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fdfdfd;
+    margin: 2em;
+  }
+  
+  h1 {
+    color: #2c3e50;
+    font-size: 2em;
+    text-align: center;
+  }
+  
+  section {
+    margin-bottom: 2em;
+    padding: 1em;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+  }
+  
