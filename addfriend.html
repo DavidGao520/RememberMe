@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Friend - RememberME</title>
+  <link rel="stylesheet" href="css/addfriend.css">
+</head>
+<body>
+  <main>
+    <h1>Add a Friend's Birthday</h1>
+
+    <form id="add-form">
+      <label>
+        Name:
+        <input type="text" id="name" required>
+      </label>
+
+      <label>
+        Birthdate:
+        <input type="date" id="birthdate" required>
+      </label>
+
+      <label>
+        Gender:
+        <select id="gender" required>
+          <option value="" disabled selected>Select</option>
+          <option>Female</option>
+          <option>Male</option>
+          <option>Non-binary</option>
+          <option>Other</option>
+        </select>
+      </label>
+
+      <label>
+        Interest:
+        <input type="text" id="interest" required>
+      </label>
+
+      <button type="submit">Add Friend</button>
+    </form>
+
+    <p id="confirmation" class="hidden"></p>
+  </main>
+
+  <script>
+    document.getElementById("add-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const confirmation = document.getElementById("confirmation");
+      confirmation.textContent = `${name}'s birthday added.`;
+      confirmation.classList.remove("hidden");
+      this.reset();
+    });
+  </script>
+</body>
+</html>
