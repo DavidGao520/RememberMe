@@ -45,11 +45,29 @@
   <script>
     document.getElementById("add-form").addEventListener("submit", function(e) {
       e.preventDefault();
+
       const name = document.getElementById("name").value;
-      const confirmation = document.getElementById("confirmation");
-      confirmation.textContent = `${name}'s birthday added.`;
-      confirmation.classList.remove("hidden");
-      this.reset();
+      const birthdate = document.getElementById("birthdate").value;
+      const gender = document.getElementById("gender").value;
+      const interest = document.getElementById("interest").value;
+
+      const newFriend = { name, birthday: birthdate, gender, interest };
+
+      // Get existing friends from localStorage
+      const currentFriends = JSON.parse(localStorage.getItem("friends")) || [];
+
+      // Add new friend to the list
+      currentFriends.push(newFriend);
+
+      // Save back to localStorage
+      localStorage.setItem("friends", JSON.stringify(currentFriends));
+
+      // Optional: show confirmation (or can redirect immediately)
+      // document.getElementById("confirmation").textContent = `${name}'s birthday added successfully!`;
+      // document.getElementById("confirmation").classList.remove("hidden");
+
+      // After save, go back to dashboard
+      window.location.href = "index.html";
     });
   </script>
 </body>
