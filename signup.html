@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up - Remember Me</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    function handleSignup(event) {
+      event.preventDefault(); // prevent page from refreshing
+
+      // Get user input values
+      const name = document.getElementById('name').value;
+
+      // Show confirmation message
+      const userInfo = document.getElementById('user-info');
+      userInfo.innerHTML = `
+        <h2>Welcome, ${name}!</h2>
+        <p>Your account has been created successfully. </p>
+        <button onclick="goNext()">Next</button>
+      `;
+
+      // Optional: clear the form
+      document.getElementById('signup-form').reset();
+    }
+
+    function goNext() {
+      // Redirect to next page or dashboard (you can change the URL later)
+      window.location.href = "dashboard.html"; 
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>RememberME</h1> <!-- Web App title added -->
+    <h2>Create Your Account</h2>
+  </header>
+
+  <main>
+    <form id="signup-form" onsubmit="handleSignup(event)">
+      <label for="name">Full Name:</label><br>
+      <input type="text" id="name" name="name" required><br><br>
+
+      <label for="email">Email Address:</label><br>
+      <input type="email" id="email" name="email" required><br><br>
+
+      <label for="password">Password:</label><br>
+      <input type="password" id="password" name="password" required><br><br>
+
+      <button type="submit">Sign Up</button>
+    </form>
+
+    <!-- This is where the success message will appear -->
+    <div id="user-info" style="margin-top: 30px;"></div>
+  </main>
+</body>
+</html>
