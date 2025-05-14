@@ -37,6 +37,20 @@ button:hover {
   display: none;
 }
 
+.btn-add-friend {
+  background-color: #ffc0cb; /* light pink */
+  color: black;
+  font-weight: 500;
+  font-size: 1.1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+
+.btn-add-friend:hover {
+  transform: scale(1.05);
+}
+
 .friend-sticker {
   width: 200px;
   margin: 10px;
