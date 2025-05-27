@@ -1,4 +1,4 @@
-import './global.css'; // 👈 This is critical!
+import './global.css'; // 👈 Critical for styling
 import { Routes, Route } from 'react-router-dom';
 import Signin from './components/Signin';
 import Register from './components/Register';
@@ -17,4 +17,3 @@ function App() {
 }
 
 export default App;
-
