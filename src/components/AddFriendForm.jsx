@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './AddFriend.css'
+import './AddFriend.css';
 
 export default function AddFriendForm() {
   const [name, setName] = useState('');
@@ -21,48 +21,47 @@ export default function AddFriendForm() {
     localStorage.setItem("friends", JSON.stringify(existing));
 
     setConfirmation(`${name}'s birthday added!`);
-    
-    // Optional: Redirect after a delay
+
     setTimeout(() => {
       navigate('/dashboard');
     }, 1000);
   };
 
   return (
-    <main className="container mt-5">
-      <h1 className="mb-4">Add a Friend's Birthday</h1>
+    <main>
+      <h1>Add a Friend's Birthday</h1>
 
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label>Name:</label>
-          <input className="form-control" value={name} onChange={(e) => setName(e.target.value)} required />
-        </div>
+      <form id="add-form" onSubmit={handleSubmit}>
+        <label>
+          Name:
+          <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
+        </label>
 
-        <div className="mb-3">
-          <label>Birthdate:</label>
-          <input className="form-control" type="date" value={birthdate} onChange={(e) => setBirthdate(e.target.value)} required />
-        </div>
+        <label>
+          Birthdate:
+          <input type="date" value={birthdate} onChange={(e) => setBirthdate(e.target.value)} required />
+        </label>
 
-        <div className="mb-3">
-          <label>Gender:</label>
-          <select className="form-select" value={gender} onChange={(e) => setGender(e.target.value)} required>
+        <label>
+          Gender:
+          <select value={gender} onChange={(e) => setGender(e.target.value)} required>
             <option value="" disabled>Select</option>
             <option>Female</option>
             <option>Male</option>
             <option>Non-binary</option>
             <option>Other</option>
           </select>
-        </div>
+        </label>
 
-        <div className="mb-3">
-          <label>Interest:</label>
-          <input className="form-control" value={interest} onChange={(e) => setInterest(e.target.value)} required />
-        </div>
+        <label>
+          Interest:
+          <input type="text" value={interest} onChange={(e) => setInterest(e.target.value)} required />
+        </label>
 
-        <button type="submit" className="btn btn-primary">Add Friend</button>
+        <button type="submit">Add Friend</button>
       </form>
 
-      {confirmation && <p className="mt-3 text-success">{confirmation}</p>}
+      {confirmation && <p id="confirmation">{confirmation}</p>}
     </main>
   );
 }

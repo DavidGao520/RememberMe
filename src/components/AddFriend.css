@@ -1,58 +1,63 @@
-/* src/addfriend.css */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #fef7fb;
-    padding: 2rem;
-  }
-  
-  main {
-    max-width: 500px;
-    margin: auto;
-    background: #ffffff;
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 0 12px rgba(0,0,0,0.1);
-  }
-  
-  h1 {
-    color: #d63384;
-    text-align: center;
-  }
-  
-  label {
-    display: block;
-    margin: 1rem 0 0.5rem;
-  }
-  
-  input, select {
-    width: 100%;
-    padding: 8px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    margin-bottom: 1rem;
-  }
-  
-  button {
-    background-color: #ff69b4;
-    color: white;
-    padding: 10px 16px;
-    border: none;
-    border-radius: 6px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #d63384;
-  }
-  
-  #confirmation {
-    color: green;
-    font-weight: bold;
-    margin-top: 1rem;
-  }
-  
-  .hidden {
-    display: none;
-  }
-  
+  font-family: Arial, sans-serif !important;
+  background-color: #fef7fb !important;
+  padding: 2rem;
+  margin: 0;
+}
+
+main {
+  max-width: 500px;
+  margin: auto;
+  background: #ffffff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(0,0,0,0.1);
+}
+
+h1 {
+  color: #d63384;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin: 1rem 0 0.5rem;
+  text-align: left;
+  font-weight: bold;
+}
+
+input, select {
+  width: 100% !important;
+  padding: 8px !important;
+  border-radius: 6px !important;
+  border: 1px solid #ccc !important;
+  margin-bottom: 1rem !important;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #ff69b4 !important;
+  color: white !important;
+  padding: 10px 16px !important;
+  border: none !important;
+  border-radius: 6px !important;
+  font-weight: bold !important;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  background-color: #d63384 !important;
+}
+
+#confirmation {
+  color: green;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.hidden {
+  display: none;
+}
