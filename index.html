@@ -14,9 +14,27 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+
+    <!-- ✅ Helps older browsers render things more consistently -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- ✅ This shows up in search engine previews -->
+    <meta name="description" content="RememberME is a React-based app that helps you track tasks, thoughts, and ideas all in one place." />
+
+    <!-- ✅ For better sharing previews on social media -->
+    <meta property="og:title" content="RememberME" />
+    <meta property="og:description" content="Stay organized and mindful with this simple, smart productivity app." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/vite.svg" />
+    <meta property="og:url" content="https://your-deployed-site-url.com" />
   </head>
   <body>
-    <div id="root"></div>
+    <!-- Optional: You can wrap React root in a <main> to clarify intent -->
+    <main>
+      <div id="root"></div>
+    </main>
+
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
+
