@@ -1,3 +1,4 @@
+// No changes to imports or functions
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { collection, doc, deleteDoc, onSnapshot } from 'firebase/firestore';
@@ -15,14 +16,12 @@ function getCardColorClass(birthdayStr) {
   const bday = new Date(birthdayStr);
   bday.setFullYear(today.getFullYear());
 
-  // If this year's birthday has already passed, move to next year
   if (bday < today) {
     bday.setFullYear(today.getFullYear() + 1);
   }
 
   const bdayUTC = Date.UTC(bday.getFullYear(), bday.getMonth(), bday.getDate());
   const diffDays = Math.ceil((bdayUTC - todayUTC) / (1000 * 60 * 60 * 24));
-
   const isSameMonth = bday.getMonth() === today.getMonth();
 
   if (diffDays < 0) return "card-past";
@@ -30,8 +29,6 @@ function getCardColorClass(birthdayStr) {
   if (isSameMonth) return "card-yellow";
   return "card-green";
 }
-
-
 
 export default function Dashboard() {
   const [friends, setFriends] = useState([]);
@@ -108,11 +105,12 @@ export default function Dashboard() {
 
   return (
     <main className="container my-5">
-      <div className="d-flex justify-content-between align-items-center mb-4">
+      {/* Flexbox Header */}
+      <div className="dashboard-header">
         <h1 className="dashboard-title"> RememberME</h1>
-        <div>
+        <div className="dashboard-actions">
           <button className="btn btn-outline-danger me-2" onClick={handleLogout}>
-             Log Out
+            Log Out
           </button>
           <Link to="/add" className="btn btn-primary">Add Friend</Link>
         </div>
@@ -123,7 +121,8 @@ export default function Dashboard() {
       ) : friends.length === 0 ? (
         <p className="text-muted">No friends added yet.</p>
       ) : (
-        <div className="row g-4">
+        // Grid Layout
+        <div className="friend-grid">
           {[...friends]
             .sort((a, b) => {
               const today = new Date();
@@ -140,40 +139,38 @@ export default function Dashboard() {
               return dateA - dateB;
             })
             .map((friend) => (
-              <div className="col-md-4" key={friend.id}>
-                <div className={`card shadow-sm friend-card position-relative ${getCardColorClass(friend.birthday)}`}>
-                  <button
-                    className="delete-btn"
-                    onClick={() => handleDelete(friend.id)}
-                    title="Delete"
-                  >
-                    ✖
-                  </button>
+              <div className={`card shadow-sm friend-card position-relative ${getCardColorClass(friend.birthday)}`} key={friend.id}>
+                <button
+                  className="delete-btn"
+                  onClick={() => handleDelete(friend.id)}
+                  title="Delete"
+                >
+                  ✖
+                </button>
 
-                  <div className="card-body">
-                    <h5 className="card-title">{friend.name}</h5>
-                    <p className="card-text">
-                      <strong>🎂 Birthday:</strong> {friend.birthday}<br />
-                      <strong>🎯 Hobby:</strong> {friend.interest}<br />
-                      <strong>🧬 Gender:</strong> {friend.gender}
-                    </p>
+                <div className="card-body">
+                  <h5 className="card-title">{friend.name}</h5>
+                  <p className="card-text">
+                    <strong>🎂 Birthday:</strong> {friend.birthday}<br />
+                    <strong>🎯 Hobby:</strong> {friend.interest}<br />
+                    <strong>🧬 Gender:</strong> {friend.gender}
+                  </p>
 
-                    <div className="d-flex justify-content-between mt-3">
-                      <button className="btn btn-outline-success btn-sm" onClick={() => handleGiftRecommend(friend)}>
-                        🎁 Gift
-                      </button>
-                      <button className="btn btn-outline-primary btn-sm" onClick={() => navigate(`/edit/${friend.id}`)}>
-                        ✏️ Edit
-                      </button>
-                    </div>
-
-                    {giftData[friend.id] && (
-                      <div className="mt-3">
-                        <strong> Recommended Gift:</strong><br />
-                        {giftData[friend.id].gift} — {giftData[friend.id]['price range']}
-                      </div>
-                    )}
+                  <div className="d-flex justify-content-between mt-3">
+                    <button className="btn btn-outline-success btn-sm" onClick={() => handleGiftRecommend(friend)}>
+                      🎁 Gift
+                    </button>
+                    <button className="btn btn-outline-primary btn-sm" onClick={() => navigate(`/edit/${friend.id}`)}>
+                      ✏️ Edit
+                    </button>
                   </div>
+
+                  {giftData[friend.id] && (
+                    <div className="mt-3">
+                      <strong> Recommended Gift:</strong><br />
+                      {giftData[friend.id].gift} — {giftData[friend.id]['price range']}
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
