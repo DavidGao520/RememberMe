@@ -1,50 +1,48 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import '../global.css';
+import { Link, useNavigate } from 'react-router-dom';
+import './index.css';
 
 export default function Signin() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // handle signin logic
+    try {
+      const { signInWithEmailAndPassword } = await import('firebase/auth');
+      const { auth } = await import('../firebase');
+      await signInWithEmailAndPassword(auth, email, password);
+      navigate('/dashboard');
+    } catch (error) {
+      alert('Invalid email or password. Please try again.');
+    }
   };
 
   return (
-    <main style={{ minHeight: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-      <div style={{
-        background: '#fff',
-        padding: '3rem',
-        borderRadius: '10px',
-        maxWidth: '500px',
-        width: '100%',
-        boxShadow: '0 0 15px rgba(0, 0, 0, 0.1)',
-      }}>
-        <h1 style={{ textAlign: 'center' }}>RememberME</h1>
-        <h2 style={{ textAlign: 'center' }}>Sign In</h2>
+    <main className="container d-flex justify-content-center align-items-center" style={{ minHeight: '100vh' }}>
+      <div className="card shadow-sm p-5" style={{ maxWidth: '480px', width: '100%' }}>
+        <h1 className="text-center text-primary mb-3">RememberME</h1>
+        <h3 className="text-center mb-4">Sign In</h3>
+
         <form onSubmit={handleSubmit}>
-          <label><strong>Email:</strong></label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+          <div className="mb-3">
+            <label className="form-label">Email</label>
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="form-control" required />
+          </div>
 
-          <label><strong>Password:</strong></label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+          <div className="mb-4">
+            <label className="form-label">Password</label>
+            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="form-control" required />
+          </div>
 
-          <button type="submit">Sign In</button>
+          <button type="submit" className="btn btn-primary w-100">Sign In</button>
         </form>
-        <p style={{ marginTop: '1rem', textAlign: 'center' }}>
-          Don't have an account? <Link to="/register">Register</Link>
-        </p>
+
+        <div className="text-center mt-4">
+          <span>Don't have an account? </span>
+          <Link to="/register">Register</Link>
+        </div>
       </div>
     </main>
   );

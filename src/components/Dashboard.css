@@ -1,0 +1,66 @@
+.dashboard-title {
+    color: #d63384;
+    font-weight: 700;
+  }
+  
+  .friend-card {
+    border-radius: 12px;
+    transition: transform 0.2s ease;
+  }
+  
+  .friend-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    color: #333;
+  }
+  
+  .card-text {
+    font-size: 0.95rem;
+    color: #555;
+  }
+  
+  .delete-btn {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    border: none;
+    background-color: #f8d7da; /* light pink */
+    color: #721c24;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+    line-height: 1;
+    padding: 0;
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .delete-btn:hover {
+    background-color: #ffffff;
+  }
+  
+  .card-pink {
+    background-color: #ffe0e9 !important;
+  }
+  
+  .card-yellow {
+    background-color: #fffbe6 !important;
+  }
+  
+  .card-green {
+    background-color: #c4ffc4 !important;
+  }
+
+  .card-past {
+    background-color: #f0f0f0 !important;
+    color: #888;
+  }
+  
+  
