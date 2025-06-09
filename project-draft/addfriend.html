@@ -2,26 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="author" content="Lomash Sharma">
+  <meta name="description" content="Add a new friend's birthday to your RememberME dashboard.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Add Friend - RememberME</title>
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="css/addfriend.css">
 </head>
 <body>
-  <main>
-    <h1>Add a Friend's Birthday</h1>
 
-    <form id="add-form">
-      <label>
-        Name:
+  <header class="text-center mt-4">
+    <h1>RememberME</h1>
+    <h2>Add a Friend's Birthday</h2>
+  </header>
+
+  <main>
+    <form id="add-form" aria-label="Add friend form">
+      <label for="name">Name:
         <input type="text" id="name" required>
       </label>
 
-      <label>
-        Birthdate:
+      <label for="birthdate">Birthdate:
         <input type="date" id="birthdate" required>
       </label>
 
-      <label>
-        Gender:
+      <label for="gender">Gender:
         <select id="gender" required>
           <option value="" disabled selected>Select</option>
           <option>Female</option>
@@ -31,16 +36,19 @@
         </select>
       </label>
 
-      <label>
-        Interest:
+      <label for="interest">Interest:
         <input type="text" id="interest" required>
       </label>
 
       <button type="submit">Add Friend</button>
     </form>
 
-    <p id="confirmation" class="hidden"></p>
+    <p id="confirmation" class="hidden" aria-live="polite"></p>
   </main>
+
+  <footer class="text-center text-muted py-3">
+    &copy; 2025 RememberME. All rights reserved.
+  </footer>
 
   <script>
     document.getElementById("add-form").addEventListener("submit", function(e) {
@@ -52,23 +60,12 @@
       const interest = document.getElementById("interest").value;
 
       const newFriend = { name, birthday: birthdate, gender, interest };
-
-      // Get existing friends from localStorage
       const currentFriends = JSON.parse(localStorage.getItem("friends")) || [];
-
-      // Add new friend to the list
       currentFriends.push(newFriend);
-
-      // Save back to localStorage
       localStorage.setItem("friends", JSON.stringify(currentFriends));
-
-      // Optional: show confirmation (or can redirect immediately)
-      // document.getElementById("confirmation").textContent = `${name}'s birthday added successfully!`;
-      // document.getElementById("confirmation").classList.remove("hidden");
-
-      // After save, go back to dashboard
       window.location.href = "index.html";
     });
   </script>
+
 </body>
 </html>
