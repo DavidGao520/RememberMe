@@ -1,32 +1,30 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="author" content="Lomash Sharma">
-  <meta name="description" content="Add a new friend's birthday to your RememberME dashboard.">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Your Name">
+  <meta name="description" content="Add a new friend's birthday - RememberME">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <title>Add Friend - RememberME</title>
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="css/addfriend.css">
 </head>
 <body>
-
-  <header class="text-center mt-4">
-    <h1>RememberME</h1>
-    <h2>Add a Friend's Birthday</h2>
-  </header>
-
   <main>
-    <form id="add-form" aria-label="Add friend form">
-      <label for="name">Name:
+    <h1>Add a Friend's Birthday</h1>
+
+    <form id="add-form">
+      <label>
+        Name:
         <input type="text" id="name" required>
       </label>
 
-      <label for="birthdate">Birthdate:
+      <label>
+        Birthdate:
         <input type="date" id="birthdate" required>
       </label>
 
-      <label for="gender">Gender:
+      <label>
+        Gender:
         <select id="gender" required>
           <option value="" disabled selected>Select</option>
           <option>Female</option>
@@ -36,18 +34,19 @@
         </select>
       </label>
 
-      <label for="interest">Interest:
+      <label>
+        Interest:
         <input type="text" id="interest" required>
       </label>
 
       <button type="submit">Add Friend</button>
     </form>
 
-    <p id="confirmation" class="hidden" aria-live="polite"></p>
+    <p id="confirmation" class="hidden"></p>
   </main>
 
-  <footer class="text-center text-muted py-3">
-    &copy; 2025 RememberME. All rights reserved.
+  <footer class="text-center py-3 mt-5">
+    <p>&copy; 2025 RememberME. All rights reserved.</p>
   </footer>
 
   <script>
@@ -66,6 +65,5 @@
       window.location.href = "index.html";
     });
   </script>
-
 </body>
 </html>
