@@ -2,7 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="RememberME Team">
+  <meta name="description" content="Sign in to RememberME to manage and remember your friends' birthdays.">
   <title>Sign In - RememberME</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -14,11 +18,11 @@
   <main class="d-flex flex-column align-items-center justify-content-center mt-5">
     <form id="signin-form" class="w-75" onsubmit="handleSignin(event)">
       <div class="mb-3">
-        <label>Email Address:</label>
+        <label for="signin-email">Email Address:</label>
         <input type="email" id="signin-email" class="form-control" required>
       </div>
       <div class="mb-3">
-        <label>Password:</label>
+        <label for="signin-password">Password:</label>
         <input type="password" id="signin-password" class="form-control" required>
       </div>
       <button type="submit" class="btn btn-success w-100">Sign In</button>
@@ -26,6 +30,10 @@
 
     <p class="mt-3">Don't have an account? <a href="register.html">Register</a></p>
   </main>
+
+  <footer class="text-center mt-5 mb-3">
+    <p>&copy; 2025 RememberME. All rights reserved.</p>
+  </footer>
 
   <script>
     function handleSignin(event) {
@@ -44,7 +52,7 @@
 
       if (email === savedUser.email && password === savedUser.password) {
         alert("Welcome back!");
-        window.location.href = "index.html"; // Go to dashboard
+        window.location.href = "index.html";
       } else {
         alert("Incorrect email or password. Try again.");
       }
