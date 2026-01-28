@@ -1,5 +1,5 @@
 {
-  "name": "project-bb05",
+  "name": "rememberme",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -13,6 +13,7 @@
     "bootstrap": "^5.3.6",
     "emailjs-com": "^3.2.0",
     "firebase": "^11.8.1",
+    "framer-motion": "^12.29.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.0"
