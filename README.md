@@ -2,7 +2,7 @@
 
 A beautiful birthday reminder app with AI-powered gift recommendations. Never forget a friend's birthday again!
 
-**Live Demo:** https://bb05-80c87.web.app
+**Live Demo:** https://rememberme-bday.web.app
 
 ## ✨ Features
 

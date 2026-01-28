@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "rememberme-bday",
     "public": "dist",
     "ignore": [
       "firebase.json",
